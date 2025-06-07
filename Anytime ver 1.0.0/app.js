@@ -28,7 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/bands',bandsRouter);
-app.use('/user/login', loginRouter);
+app.use('/login', loginRouter);
 app.use('/songs', songRouter);
 
 // catch 404 and forward to error handler
