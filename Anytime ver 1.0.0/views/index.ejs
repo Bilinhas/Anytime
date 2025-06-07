@@ -1,0 +1,39 @@
+<%- include('./partials/header') %>
+
+<div class="container-fluid text-white" id="div1" style="background-image: url('<%= bg1 %>');">
+  <div class="container-fluid p-5">
+    <p class="mb-2"><%= desc %></p>
+    <h1 class="mb-2"><%= title %></h1>
+    <br>
+    <a href="/user/login" class="btn btn-danger p-2"><%= btn1 %></a>
+  </div>
+</div>
+
+<div class="container-fluid text-center text-white" id="div2" style="background-image: url('<%= bg2 %>');">
+  <div class="container">
+    <h1><%= body1 %></h1>
+    <h4><%= body2 %></h4>
+<br><br>
+    <div class="row justify-content-center gx-5 gy-5 mt-4" id="divrow">
+      <% [1, 2, 3, 4].forEach((i) => { %>
+        <div class="col-sm-6 col-md-3 mb-4" id="card">
+          <div class="card h-100 bg-dark text-white">
+            <img src="<%= eval('img' + i) %>" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title"><%= eval('band' + i) %></h5>
+              <p class="card-text"><%= eval('song' + i) %></p>
+              <a href="/songs/<%= i %>" class="btn btn-danger"><%= btn2 %></a>
+            </div>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <%- include('./partials/footer') %>
+</footer>
+
+</body>
+</html>

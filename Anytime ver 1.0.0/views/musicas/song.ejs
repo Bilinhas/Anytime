@@ -1,0 +1,57 @@
+<%- include('../partials/header') %>
+
+  <div class="container-fluid text-white" id="div2" style="background-image: url('<%= bg %>');">
+  <div class="container py-5">
+    <h1 class="text-center mb-5"><%= title %></h1>
+<br>
+    <div class="row justify-content-center gx-5 gy-5">
+      <div class="col-md-5 text-center">
+        <h3><%= vocal %></h3>
+        <audio controls class="w-100">
+          <source src="<%= vt %>" type="audio/mp3">
+        </audio>
+      </div>
+      <div class="col-md-5 text-center">
+        <h3><%= guitar %></h3>
+        <audio controls class="w-100">
+          <source src="<%= gt %>" type="audio/mp3">
+        </audio>
+      </div>
+
+      <% if (bvocal && bguitar) { %>
+      <div class="col-md-5 text-center">
+        <h3><%= bvocal %></h3>
+        <audio controls class="w-100">
+          <source src="<%= bvt %>" type="audio/mp3">
+        </audio>
+      </div>
+      <div class="col-md-5 text-center">
+        <h3><%= bguitar %></h3>
+        <audio controls class="w-100">
+          <source src="<%= bgt %>" type="audio/mp3">
+        </audio>
+      </div>
+      <% } %>
+
+      <div class="col-md-5 text-center">
+        <h3><%= bass %></h3>
+        <audio controls class="w-100">
+          <source src="<%= bt %>" type="audio/mp3">
+        </audio>
+      </div>
+      <div class="col-md-5 text-center">
+        <h3><%= drums %></h3>
+        <audio controls class="w-100">
+          <source src="<%= dt %>" type="audio/mp3">
+        </audio>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <footer>
+    <%- include('../partials/footer') %>
+  </footer>
+
+  </html>

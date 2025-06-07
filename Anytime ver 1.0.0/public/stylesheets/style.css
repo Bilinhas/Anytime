@@ -1,0 +1,68 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+#div1 {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  padding: 26rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#div2 {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 15rem 2rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#divrow {
+  margin-top: 2rem;
+}
+
+#div2index {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 1000px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#bands{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 800px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.corpo {
+    background-color: rgb(16, 17, 17);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.card {
+    scale:1; transition: 180ms ease-in-out;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+.card:hover{
+    scale:1.15; transition: 180ms ease-in-out;
+}
+#mynavbar:hover{
+    color: red;
+}
+audio {
+    color-scheme: dark;
+}
+audio::-webkit-media-controls-current-time-display { 
+    color: red; 
+}
