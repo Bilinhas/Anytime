@@ -1,0 +1,97 @@
+<%- include('./partials/header') %>
+
+  <div class="container-fluid text-white" id="div1" style="background-image: url('<%= bg1 %>');">
+    <div class="container-fluid p-5 mx-4 fade-on-scroll">
+      <p class="mb-2 lead ">
+        <%= desc %>
+      </p>
+      <h1 class="mb-2 display-3 ">
+        <%= title %>      <img style="width: 50px; height: 50px;"  src="/stylesheets/imagens/som.png">
+
+      </h1>
+      <br>
+    </div>
+  </div>
+
+  <div class="container-fluid text-center text-white" id="songs" style="background-image: url('<%= bg2 %>');">
+    <div class="container fade-on-scroll">
+      <div>
+        <h1>
+          <%= body1 %>
+        </h1>
+        <h4>
+          <%= body2 %>
+        </h4>
+      </div>
+
+
+      <br><br>
+      <div class="row justify-content-center gx-5 gy-5 mt-4 fade-on-scroll" id="divrow">
+        <% [1, 2, 3, 4].forEach((i)=> { %>
+          <div id="card" class="col-sm-6 col-md-3 mb-4 card-fade fade-on-scroll">
+            <div class="card h-100 bg-dark text-white">
+              <img src="<%= eval('img' + i) %>" class="card-img-top" alt="">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <%= eval('band' + i) %>
+                </h5>
+                <p class="card-text">
+                  <%= eval('song' + i) %>
+                </p>
+                <a href="/songs/<%= i %>" class="btn btn-danger">
+                  <%= btn2 %>
+                </a>
+              </div>
+            </div>
+          </div>
+          <% }); %>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <%- include('./partials/footer') %>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const elements = document.querySelectorAll(".fade-on-scroll");
+
+      // Força estado inicial como oculto
+      elements.forEach(el => el.classList.add('fade-hidden'));
+
+      const handleScroll = () => {
+        const windowHeight = window.innerHeight;
+        let cardIndex = 0;
+
+        elements.forEach((el) => {
+          const rect = el.getBoundingClientRect();
+          const isCard = el.classList.contains("card-fade");
+
+          if (rect.top < windowHeight - 100 && rect.bottom > 100) {
+            // efeito cascata só nos cards
+            el.style.transitionDelay = isCard ? `${cardIndex * 100}ms` : "0ms";
+            if (isCard) cardIndex++;
+
+            el.classList.add("fade-visible");
+            el.classList.remove("fade-hidden");
+          } else {
+            el.style.transitionDelay = "0ms";
+            el.classList.remove("fade-visible");
+            el.classList.add("fade-hidden");
+          }
+        });
+      };
+
+      window.addEventListener("scroll", handleScroll);
+      window.addEventListener("resize", handleScroll);
+      handleScroll(); // Executa na carga inicial
+    });
+  </script>
+
+
+
+
+  </body>
+
+  </html>

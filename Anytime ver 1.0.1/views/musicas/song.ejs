@@ -1,0 +1,70 @@
+<%- include('../partials/header') %>
+
+<div
+  class="container-fluid text-white"
+  id="songs"
+  style="
+    background-image: url('<%= bg %>');
+    background-size: cover;
+    background-position: center;
+  "
+>
+  <div class="container py-5">
+    <h1 class="text-center mb-4"><%= artist %> - <%= title %></h1>
+    <h5 class="text-center mb-5">Album: <em><%= album %></em></h5>
+
+    <% if (vt || gt || bt || dt || bvt || bgt) { %>
+    <div class="row justify-content-center gx-5 gy-5">
+      <% if (vt) { %>
+      <div class="col-md-5 text-center">
+        <h3>Vocal Track</h3>
+        <audio controls class="w-100">
+          <source src="<%= vt %>" type="audio/mp3" />
+        </audio>
+      </div>
+      <% } %> <% if (gt) { %>
+      <div class="col-md-5 text-center">
+        <h3>Guitar Track</h3>
+        <audio controls class="w-100">
+          <source src="<%= gt %>" type="audio/mp3" />
+        </audio>
+      </div>
+      <% } %> <% if (bvt) { %>
+      <div class="col-md-5 text-center">
+        <h3>Backing Vocal Track</h3>
+        <audio controls class="w-100">
+          <source src="<%= bvt %>" type="audio/mp3" />
+        </audio>
+      </div>
+      <% } %> <% if (bgt) { %>
+      <div class="col-md-5 text-center">
+        <h3>Backing Guitar Track</h3>
+        <audio controls class="w-100">
+          <source src="<%= bgt %>" type="audio/mp3" />
+        </audio>
+      </div>
+      <% } %> <% if (bt) { %>
+      <div class="col-md-5 text-center">
+        <h3>Bass Track</h3>
+        <audio controls class="w-100">
+          <source src="<%= bt %>" type="audio/mp3" />
+        </audio>
+      </div>
+      <% } %> <% if (dt) { %>
+      <div class="col-md-5 text-center">
+        <h3>Drum Track</h3>
+        <audio controls class="w-100">
+          <source src="<%= dt %>" type="audio/mp3" />
+        </audio>
+      </div>
+      <% } %>
+    </div>
+    <% } else { %>
+    <p class="text-center">
+      <em>Isolated tracks not available for this song.</em>
+    </p>
+    <% } %>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>

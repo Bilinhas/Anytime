@@ -1,0 +1,121 @@
+<%- include('../partials/header') %>
+
+<div
+  style="
+    background-image: url(/stylesheets/imagens/synth.PNG);
+    background-size: cover;
+    background-position: center;
+  "
+  id="songs"
+>
+  <div class="container mt-5 text-white">
+    <h2 class="mb-4">Showing results for "<%= searchQuery %>":</h2>
+
+    <% if (tracks.length === 0) { %>
+      <p>No music found.</p>
+    <% } else { %>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <% tracks.forEach(track => { %>
+          <div class="col card-fade fade-on-scroll">
+            <div class="card h-100 bg-dark text-white shadow rounded">
+              <img
+                src="<%= track.album.images[0]?.url %>"
+                class="card-img-top"
+                alt="Album cover"
+                style="height: 200px; object-fit: cover"
+              />
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title"><%= track.name %></h5>
+                <p class="card-text mb-2">
+                  <strong>Artist:</strong> <%= track.artists.map(a => a.name).join(", ") %><br />
+                  <strong>Album:</strong> <%= track.album.name %><br />
+                  <strong>Duration:</strong>
+                  <%= Math.floor(track.duration_ms / 60000) %>:<%= ((track.duration_ms % 60000) / 1000).toFixed(0).padStart(2, '0') %>
+                </p>
+
+                <% if (track.preview_url) { %>
+                  <audio controls class="w-100 mb-3">
+                    <source src="<%= track.preview_url %>" type="audio/mpeg" />
+                    Your browser does not support the audio element.
+                  </audio>
+                <% } else { %>
+                  <p><em>No previews available</em></p>
+                <% } %>
+
+                <div class="mt-auto">
+                  <a
+                    href="<%= track.external_urls.spotify %>"
+                    target="_blank"
+                    class="btn btn-success w-100 mb-2"
+                  >
+                    Listen on Spotify
+                  </a>
+
+                  <% if (track.hasTracks) { %>
+                    <a
+                      href="/songs/<%= track.localTrackId %>"
+                      class="btn btn-danger w-100"
+                    >
+                      Listen to Tracks
+                    </a>
+                  <% } else { %>
+                    <span class="text-muted d-block text-center">
+                      No tracks available
+                    </span>
+                  <% } %>
+                </div>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+      </div>
+    <% } %>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const elements = document.querySelectorAll(".fade-on-scroll");
+
+    elements.forEach(el => el.classList.add("fade-hidden"));
+
+    const handleScroll = () => {
+      const windowHeight = window.innerHeight;
+      let cardIndex = 0;
+
+      elements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        const isCard = el.classList.contains("card-fade");
+
+        if (rect.top < windowHeight - 100) {
+          el.style.transitionDelay = isCard ? `${cardIndex * 100}ms` : "0ms";
+          if (isCard) cardIndex++;
+
+          el.classList.add("fade-visible");
+          el.classList.remove("fade-hidden");
+        } else {
+          el.style.transitionDelay = "0ms";
+          el.classList.remove("fade-visible");
+          el.classList.add("fade-hidden");
+        }
+      });
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+  });
+
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      document.querySelectorAll(".fade-on-scroll").forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add("fade-visible");
+          el.classList.remove("fade-hidden");
+        }
+      });
+    }, 200);
+  });
+</script>

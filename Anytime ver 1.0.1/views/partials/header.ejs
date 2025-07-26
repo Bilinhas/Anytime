@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/png" href="/stylesheets/imagens/som.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css"
+      integrity="sha512-8bHTC73gkZ7rZ7vpqUQThUDhqcNFyYi2xgDgPDHc+GXVGHXq+xPjynxIopALmOPqzo9JZj0k6OqqewdGO3EsrQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Anytime</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body class="corpo">
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <nav id="nav" class="navbar navbar-expand-sm navbar-dark">
+      <div class="container-fluid mx-5">
+        <a class="navbar-brand text-light p-1" href="/">Anytime</a>
+        <img
+          style="width: 25px; height: 25px"
+          src="/stylesheets/imagens/som.png"
+        />
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mynavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse mx-5 me-auto" id="mynavbar">
+          <ul class="navbar-nav me-auto d-flex align-items-center gap-4">
+            <li class="nav-item mx-5">
+              <a class="nav-link text-light" href="/bands">Bands</a>
+            </li>
+            <li class="nav-item mx-5">
+              <a class="nav-link text-light" href="#songs">Songs</a>
+            </li>
+            <li class="nav-item mx-5">
+              <a class="nav-link text-light" href="#about">About</a>
+            </li>
+          </ul>
+
+          <form class="d-flex align-items-center rounded" id="searchForm">
+            <input
+              class="form-control me-2 text-light"
+              type="text"
+              id="searchInput"
+              name="q"
+              placeholder="Search for songs"
+              style="background: none"
+            />
+            <button class="btn btn-danger me-3 text-light" type="submit">
+              Search
+            </button>
+          </form>
+
+          <script>
+            document
+              .getElementById("searchForm")
+              .addEventListener("submit", function (e) {
+                e.preventDefault();
+                const query = document
+                  .getElementById("searchInput")
+                  .value.trim();
+                if (query) {
+                  window.location.href = `/search?q=${encodeURIComponent(
+                    query
+                  )}`;
+                }
+              });
+          </script>
+        </div>
+      </div>
+    </nav>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const nav = document.getElementById("nav");
+
+        const handleScroll = () => {
+          const scrollTop = window.scrollY;
+          console.log(scrollTop);
+          if (scrollTop > 250) {
+            nav.classList.add("hidden");
+          } else {
+            nav.classList.remove("hidden");
+          }
+        };
+        window.addEventListener("scroll", handleScroll, false);
+      });
+    </script>
+  </body>
+</html>

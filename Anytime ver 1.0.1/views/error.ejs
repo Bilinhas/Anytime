@@ -1,0 +1,39 @@
+<%- include('./partials/header') %>
+
+<div
+  class="container-fluid text-white"
+  id="bands"
+  style="background-image: url('<%= bg %>')"
+>
+  <div class="py-5 mx-5">
+    <h1 class="mt-5 py-5 display-3"><%= message %></h1>
+    <p class="lead">
+      Page not found or non-existent, make sure the data is filled in correctly.
+      <br />
+      <a href="http://localhost:3000/">Click here to return to the beginning</a>
+      or
+      <a href="#" id="toggleDetails">View details</a>
+    </p>
+
+    <div id="errorDetails" style="display: none">
+      <a href="http://localhost:3000/">
+        <h2 class="mt-5"><%= error.status %></h2>
+        <pre><%= error.stack %></pre>
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer><%- include('./partials/footer') %></footer>
+
+<script>
+  const toggleLink = document.getElementById("toggleDetails");
+  const detailsDiv = document.getElementById("errorDetails");
+
+  toggleLink.addEventListener("click", function (e) {
+    e.preventDefault();
+    const isVisible = detailsDiv.style.display === "block";
+    detailsDiv.style.display = isVisible ? "none" : "block";
+    toggleLink.textContent = isVisible ? "View details" : "Hide details";
+  });
+</script>
