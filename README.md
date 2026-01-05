@@ -1,8 +1,8 @@
 # Anytime 🇧🇷
 
-**Anytime** é um site dedicado à preservação, estudo e apreciação da música em sua forma mais pura. Aqui você encontrará **faixas isoladas** e **demos raras** (futuramente) de músicas influentes de todos os gêneros.
+**Anytime** é um site dedicado à preservação, estudo e apreciação da música em sua forma mais pura. Aqui você encontrará **faixas isoladas** (stems) e **demos raras** (futuramente) de músicas influentes de todos os gêneros.
 
-> Desenvolvido para a nota da Atividade N1 e N2 da disciplina de Programação Web I do P5 de Informática - IFCE Campus Fortaleza
+> Desenvolvido para a nota da Atividade N1 e N2 da disciplina de Programação Web I do P5 de Informática e, posteriormente, refatorado e finalizado para a nota da Atividade N2 de Programação Web II do P6 de Informática - IFCE Campus Fortaleza
 
 ## 🌐 Sobre o Projeto
 
@@ -31,7 +31,7 @@ Todo o conteúdo é selecionado com foco em relevância histórica, musical e cu
 
 ## ⚙️ Tecnologias Utilizadas
 
-- **Node.js** + **Express** 
+- **Node.js** + **React** 
 - **Bootstrap** para o design moderno e responsivo
 - **MongoDB Atlas**
 - **Spotify API** para o sistema de busca
@@ -47,12 +47,13 @@ Caso tenha dúvidas, sugestões ou queira colaborar com o projeto:
 - ✉️ bilinhas1712@hotmail.com
 
 ---
+<br>
 
 # Anytime 🇺🇸
 
-**Anytime** is a website dedicated to the preservation, study, and appreciation of music in its purest form. Here you'll find **isolated tracks** and **rare demos** (coming soon) of influential songs from all genres.
+**Anytime** is a website dedicated to the preservation, study, and appreciation of music in its purest form. Here you'll find **isolated tracks** (stems) and **rare demos** (coming soon) of influential songs from all genres.
 
-> Developed for the grade of Activity N1 and N2 in the Web Programming I course of the 5th semester Informatics program – IFCE Fortaleza Campus
+> Developed for the grade of Activity N1 and N2 of the Web Programming I subject of the P5 of Informatics and, later, refactored and finalized for the grade of Activity N2 of Web Programming II of the P6 of Informatics – IFCE Fortaleza Campus
 
 ## 🌐 About the Project
 
@@ -81,7 +82,7 @@ All content is carefully selected for its historical, musical, and cultural rele
 
 ## ⚙️ Technologies Used
 
-- **Node.js** + **Express**  
+- **Node.js** + **React**  
 - **Bootstrap** for modern and responsive design  
 - **MongoDB Atlas**
 - **Spotify API** for the search system
